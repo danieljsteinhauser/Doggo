@@ -19,7 +19,7 @@ module.exports= {
 
              const striveRole = message.guild.roles.cache.find(role => role.name === "Strive") // Use Role's Name
              const streetfighterRole = message.guild.roles.cache.find(role => role.name === "Street Fighter")
-             const blazeblueRole = message.guild.roles.cache.find(role => role.name === "Blazblue")
+             const blazblueRole = message.guild.roles.cache.find(role => role.name === "Blazblue")
              const kofRole = message.guild.roles.cache.find(role => role.name === "KOF")
              const meltyRole = message.guild.roles.cache.find(role => role.name === "Melty") 
              const bbtagRole = message.guild.roles.cache.find(role => role.name === "BBTag")
@@ -62,92 +62,80 @@ module.exports= {
                   if (reaction.partial) await reaction.fetch();   
    
    // If Permission Error Happens, Make sure Bot is in Role with Permissions
-                  try{                                                  
+                  try{                            
                         if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === mdFlag){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(marylandRole)
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(dmvRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === vaFlag){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(virginiaRole)
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(dmvRole)  
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === dcFlag){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(dcRole)
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(dmvRole)  
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === nonDMVFlag){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(nonDMVRole)
-                              client.channels.cache.get(modChat).send("@here" + ' user ' + user.tag + ' has selected a Non-DMV role. Please reach out to this user and determine if they belong.') 
-                                    .then(user.send('Hi again! The DMV Homiecord mod-team are dedicated to building a community for DMV fighting game players. To accomplish this, we currently are manually approving and only providing limited channel access to Non-DMV members. A Moderator should contact you shortly to confirm your relationship to the DMV region.'))
-                        }}  
-                       if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === striveEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(striveRole) // If Permission Error Happens, Make sure Bot is in Bot Role with Permissions
-                        }}
-
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === streetfighterEmoji){
-                                 await reaction.message.guild.members.cache.get(user.id).roles.add(streetfighterRole) // If Permission Error Happens, Make sure Bot is in Bot Role with Permissions
-                           }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === blazblueEmoji){
-                                 await reaction.message.guild.members.cache.get(user.id).roles.add(blazeblueRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === kofEmoji){
-                                 await reaction.message.guild.members.cache.get(user.id).roles.add(kofRole) 
-                        }}     
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === meltyEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(meltyRole) 
-                        }} 
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === bbtagEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(bbtagRole) 
-                        }} 
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === granblueEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(granblueRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === personaEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(personaRole) 
-                        }} 
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === dnfEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(dnfRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === dengekiEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(dengekiRole)
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === skullgirlsEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(skullgirlsRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === dbfzEmoji){
-                                 await reaction.message.guild.members.cache.get(user.id).roles.add(dbfzRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === uniclrEmoji){
-                                 await reaction.message.guild.members.cache.get(user.id).roles.add(uniclrRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === ggxrdEmoji){
-                                 await reaction.message.guild.members.cache.get(user.id).roles.add(ggxrdRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === miscEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.add(miscRole) 
-                        }}   
-                       
-                       else {
-                            return }
+							//evaluate region reactions
+							switch (reaction.emoji){
+								case mdFlag:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(marylandRole)
+									await reaction.message.guild.members.cache.get(user.id).roles.add(dmvRole) 
+									break
+								case vaFlag:
+								    await reaction.message.guild.members.cache.get(user.id).roles.add(virginiaRole)
+									await reaction.message.guild.members.cache.get(user.id).roles.add(dmvRole)  
+									break
+								case dcFlag:
+								    await reaction.message.guild.members.cache.get(user.id).roles.add(dcRole)
+									await reaction.message.guild.members.cache.get(user.id).roles.add(dmvRole)  
+									break
+								case nonDMVFlag:
+								    await reaction.message.guild.members.cache.get(user.id).roles.add(nonDMVRole)
+									client.channels.cache.get(modChat).send("@here" + ' user ' + user.tag + ' has selected a Non-DMV role. Please reach out to this user and determine if they belong.') 
+                                    .then(user.send('Hi again! The DMV Homiecord mod-team are dedicated to building a community for DMV fighting game players. To accomplish this, we currently are manually approving and only providing limited channel access to Non-DMV members. A Moderator should contact you shortly to confirm your relationship to the DMV region.'))                        
+							
+							}
+							//evaluate game reactions
+							switch (reaction.emoji){
+								case striveEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(striveRole) // If Permission Error Happens, Make sure Bot is in Bot Role with Permissions
+									break
+								case streetfighterEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(streetfighterRole) // If Permission Error Happens, Make sure Bot is in Bot Role with Permissions
+									break
+								case blazblueEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(blazblueRole) 
+									break
+								case kofEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(kofRole) 
+									break
+								case meltyEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(meltyRole) 
+									break		
+								case bbtagEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(bbtagRole) 
+									break		
+								case granblueEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(granblueRole) 
+									break	
+								case personaEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(personaRole) 
+									break		
+								case dnfEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(dnfRole) 
+									break	
+								case dengekiRole:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(dengekiRole) 
+									break		
+								case skullgirlsEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(skullgirlsRole) 
+									break						
+								case dbfzEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(dbfzRole) 
+									break		
+								case uniclrEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(uniclrRole) 
+									break	
+								case ggxrdEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(ggxrdRole) 
+									break									
+								case miscEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(miscRole) 
+									break									
+								default:
+									break
+							}
+						}
+						return;
                   } catch (error) {
                        console.error('Something went wrong assigning roles:', error)
                        let eCatch = error.stack;
@@ -166,90 +154,76 @@ module.exports= {
    
                   try{
                         if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === mdFlag) {
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(marylandRole) // If Permission Error Happens, Make sure Bot is in Bot Role with Permissions
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(dmvRole)
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === vaFlag){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(virginiaRole)
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(dmvRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === dcFlag){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(dcRole)
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(dmvRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === nonDMVFlag){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(nonDMVRole)
-                        }}
-         ///////////////////////// DMV AND FGC Divide /////////////////////////////
-
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === striveEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(striveRole) // If Permission Error Happens, Make sure Bot is in Bot Role with Permissions
-                        }}
-
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === streetfighterEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(streetfighterRole) 
-                        }}
-
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === blazblueEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(blazeblueRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === kofEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(kofRole) 
-                        }}     
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === meltyEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(meltyRole) 
-                        }} 
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === bbtagEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(bbtagRole) 
-                        }} 
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === granblueEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(granblueRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === personaEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(personaRole) 
-                        }} 
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === dnfEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(dnfRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === dengekiEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(dengekiRole) 
-                        }} 
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === dbfzEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(dbfzRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === uniclrEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(uniclrRole) 
-                        }} 
-                        if (reaction.message.channel.id == channel) {
-                              if (reaction.emoji === ggxrdEmoji){
-                              await reaction.message.guild.members.cache.get(user.id).roles.remove(ggxrdRole) 
-                        }}  
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === skullgirlsEmoji){
-                           await reaction.message.guild.members.cache.get(user.id).roles.remove(skullgirlsRole) 
-                        }}
-                        if (reaction.message.channel.id == channel) {
-                           if (reaction.emoji === miscEmoji){
-                           await reaction.message.guild.members.cache.get(user.id).roles.remove(miscRole)}
-                        else {
-                              return }}
-                  } 
+							//evaluate region reactions
+							switch (reaction.emoji){
+								case mdFlag:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(marylandRole)
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(dmvRole) 
+									break
+								case vaFlag:
+								    await reaction.message.guild.members.cache.get(user.id).roles.remove(virginiaRole)
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(dmvRole)  
+									break
+								case dcFlag:
+								    await reaction.message.guild.members.cache.get(user.id).roles.remove(dcRole)
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(dmvRole)  
+									break
+								case nonDMVFlag:
+								    await reaction.message.guild.members.cache.get(user.id).roles.remove(nonDMVRole)
+							}
+							//evaluate game reactions
+							switch (reaction.emoji){
+								case striveEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(striveRole) // If Permission Error Happens, Make sure Bot is in Bot Role with Permissions
+									break
+								case streetfighterEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(streetfighterRole) // If Permission Error Happens, Make sure Bot is in Bot Role with Permissions
+									break
+								case blazblueEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(blazblueRole) 
+									break
+								case kofEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(kofRole) 
+									break
+								case meltyEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(meltyRole) 
+									break		
+								case bbtagEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(bbtagRole) 
+									break		
+								case granblueEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(granblueRole) 
+									break	
+								case personaEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(personaRole) 
+									break		
+								case dnfEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(dnfRole) 
+									break	
+								case dengekiRole:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(dengekiRole) 
+									break		
+								case skullgirlsEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(skullgirlsRole) 
+									break						
+								case dbfzEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(dbfzRole) 
+									break		
+								case uniclrEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(uniclrRole) 
+									break	
+								case ggxrdEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(ggxrdRole) 
+									break									
+								case miscEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(miscRole) 
+									break									
+								default:
+									break
+							}
+						} 
+						return
+				  }
                   catch (error) {
                      console.error('Something went wrong assigning roles:', error)
                      let eCatch = error.stack;
