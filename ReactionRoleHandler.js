@@ -21,12 +21,9 @@ module.exports= {
              const streetfighterRole = message.guild.roles.cache.find(role => role.name === "Street Fighter")
              const blazblueRole = message.guild.roles.cache.find(role => role.name === "Blazblue")
              const kofRole = message.guild.roles.cache.find(role => role.name === "KOF")
-             const meltyRole = message.guild.roles.cache.find(role => role.name === "Melty") 
-             const bbtagRole = message.guild.roles.cache.find(role => role.name === "BBTag")
-             const granblueRole = message.guild.roles.cache.find(role => role.name === "Granblue")
-             const personaRole = message.guild.roles.cache.find(role => role.name === "Persona")
+             const meltyRole = message.guild.roles.cache.find(role => role.name === "Melty")
              const dnfRole = message.guild.roles.cache.find(role => role.name === "DNF")  
-             const dengekiRole = message.guild.roles.cache.find(role => role.name === "DFCI")
+             const tekkenRole = message.guild.roles.cache.find(role => role.name === "Tekken")
              const skullgirlsRole = message.guild.roles.cache.find(role => role.name === "Skullgirls")
              const uniclrRole = message.guild.roles.cache.find(role => role.name === "UNICLR")
              const dbfzRole = message.guild.roles.cache.find(role => role.name === "DBFZ")
@@ -44,11 +41,8 @@ module.exports= {
              const blazblueEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Blazblue')
              const kofEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'KOFXV')
              const meltyEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Melty_Blood') 
-             const bbtagEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'BBTag')
-             const granblueEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Granblue') 
-             const personaEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Persona')
-             const dnfEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'DNF_Duel')
-             const dengekiEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Dengeki') 
+             const tekkenEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Tekken')                         
+             const dnfEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'DNF_Duel')             
              const skullgirlsEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Skullgirls')
              const uniclrEmoji = message.guild.emojis.cache.find(emoji => emoji.name === "UNICLR")
              const dbfzEmoji= message.guild.emojis.cache.find(emoji => emoji.name === "DBFZ")
@@ -101,21 +95,12 @@ module.exports= {
 								case meltyEmoji:
 									await reaction.message.guild.members.cache.get(user.id).roles.add(meltyRole) 
 									break		
-								case bbtagEmoji:
-									await reaction.message.guild.members.cache.get(user.id).roles.add(bbtagRole) 
-									break		
-								case granblueEmoji:
-									await reaction.message.guild.members.cache.get(user.id).roles.add(granblueRole) 
+								case tekkenEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.add(tekkenRole) 
 									break	
-								case personaEmoji:
-									await reaction.message.guild.members.cache.get(user.id).roles.add(personaRole) 
-									break		
 								case dnfEmoji:
 									await reaction.message.guild.members.cache.get(user.id).roles.add(dnfRole) 
-									break	
-								case dengekiRole:
-									await reaction.message.guild.members.cache.get(user.id).roles.add(dengekiRole) 
-									break		
+									break			
 								case skullgirlsEmoji:
 									await reaction.message.guild.members.cache.get(user.id).roles.add(skullgirlsRole) 
 									break						
@@ -188,20 +173,11 @@ module.exports= {
 								case meltyEmoji:
 									await reaction.message.guild.members.cache.get(user.id).roles.remove(meltyRole) 
 									break		
-								case bbtagEmoji:
-									await reaction.message.guild.members.cache.get(user.id).roles.remove(bbtagRole) 
-									break		
-								case granblueEmoji:
-									await reaction.message.guild.members.cache.get(user.id).roles.remove(granblueRole) 
-									break	
-								case personaEmoji:
-									await reaction.message.guild.members.cache.get(user.id).roles.remove(personaRole) 
+								case tekkenEmoji:
+									await reaction.message.guild.members.cache.get(user.id).roles.remove(tekkenRole) 
 									break		
 								case dnfEmoji:
 									await reaction.message.guild.members.cache.get(user.id).roles.remove(dnfRole) 
-									break	
-								case dengekiRole:
-									await reaction.message.guild.members.cache.get(user.id).roles.remove(dengekiRole) 
 									break		
 								case skullgirlsEmoji:
 									await reaction.message.guild.members.cache.get(user.id).roles.remove(skullgirlsRole) 
